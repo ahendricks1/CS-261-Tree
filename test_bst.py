@@ -1,6 +1,6 @@
 import unittest
 
-class TestTree(unittest.TestCase):
+class TestBinarySearchTreeTree(unittest.TestCase):
     
     def test_failure(self):
         self.fail("Intentional failure.")
