@@ -40,14 +40,16 @@ class BinarySearchTree:
         if self.right:
             self.right.preorder()
 
-    def postorder(self, child):
-        if self != None:
-            self.postorder(self.get_left)
-            self.postorder(self.get_right)
-            print(self.get_root_val)
+    def postorder(self):
+        if self:
+            if self.get_left():
+                self.get_left().postorder()
+            if self.get_right():
+                self.get_right().postorder()
+            print(self.get_root_val())            
 
     def inorder(self, child):
-        if self != None:
-            self.inorder(self.get_left())
+        if self:
+            inorder(self.get_left())
             print(self.get_root_val())
-            self.inorder(self.get_right())
+            inorder(self.get_right())
