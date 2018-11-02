@@ -44,11 +44,16 @@ class TestBinarySearchTreeTree(unittest.TestCase):
         self.assertEqual(41, bst.left.value)
     
     def test_insert_with_value_right(self):
-        fake_child_left = BinarySearchTree()
-        fake_child_right = BinarySearchTree()
-        bst = BinarySearchTree("FAKE", fake_child_left, fake_child_right)
+        bst = BinarySearchTree("FAKE", BinarySearchTree(), BinarySearchTree())
         bst.insert_right(41)
         self.assertEqual(41, bst.right.value)
+
+    """
+    Find
+    """
+
+    def test_find_value(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()

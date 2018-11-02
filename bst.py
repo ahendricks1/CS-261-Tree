@@ -5,6 +5,15 @@ class BinarySearchTree:
         self.left = left
         self.right = right
 
+    def get_left(self):
+        return self.left
+    
+    def get_right(self):
+        return self.right
+
+    def get_root_val(self):
+        return self.value
+
     def insert(self, value):
         self.value = value
 
@@ -23,3 +32,22 @@ class BinarySearchTree:
             t = BinarySearchTree(newNode)
             t.right = self.right
             self.right = t
+
+    def preorder(self):
+        print(self.value)
+        if self.left:
+            self.left.preorder()
+        if self.right:
+            self.right.preorder()
+
+    def postorder(self, child):
+        if self != None:
+            self.postorder(self.get_left)
+            self.postorder(self.get_right)
+            print(self.get_root_val)
+
+    def inorder(self, child):
+        if self != None:
+            self.inorder(self.get_left())
+            print(self.get_root_val())
+            self.inorder(self.get_right())
