@@ -48,8 +48,10 @@ class BinarySearchTree:
                 self.get_right().postorder()
             print(self.get_root_val())            
 
-    def inorder(self, child):
+    def inorder(self):
         if self:
-            inorder(self.get_left())
-            print(self.get_root_val())
-            inorder(self.get_right())
+            if self.get_left():
+                self.get_left().inorder()
+            print(self.value)
+            if self.get_right():
+                self.get_right().inorder()

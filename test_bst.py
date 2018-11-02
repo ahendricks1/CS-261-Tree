@@ -64,5 +64,18 @@ class TestBinarySearchTreeTree(unittest.TestCase):
         bst_3 = BinarySearchTree(77, bst_1, bst_2)
         bst_3.postorder()
 
+    def test_traverse_inorder(self):
+        bst_1 = BinarySearchTree(33)
+        bst_2 = BinarySearchTree(45)
+        bst_3 = BinarySearchTree(80, bst_1, bst_2)
+        bst_3.inorder()
+
+    """
+    Find
+    """
+
+    def test_find_value(self):
+        pass
+
 if __name__ == '__main__':
     unittest.main()
