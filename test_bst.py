@@ -49,11 +49,14 @@ class TestBinarySearchTreeTree(unittest.TestCase):
         self.assertEqual(41, bst.right.value)
 
     """
-    Find
+    Traverse
     """
 
-    def test_find_value(self):
-        
+    def test_traverse_preorder(self):
+        bst_1 = BinarySearchTree(40)
+        bst_2 = BinarySearchTree(53)
+        bst_3 = BinarySearchTree(10, bst_1, bst_2)
+        bst_3.preorder()
 
 if __name__ == '__main__':
     unittest.main()
