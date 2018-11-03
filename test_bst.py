@@ -74,6 +74,11 @@ class TestBinarySearchTreeTree(unittest.TestCase):
     Find
     """
 
+    def test_find(self):
+        test_value = "FAKE"
+        bst = BinarySearchTree(test_value)
+        self.assertEqual(test_value, bst.value)
+
     def test_find_value(self):
         pass
 

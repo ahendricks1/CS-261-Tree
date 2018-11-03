@@ -14,6 +14,9 @@ class BinarySearchTree:
     def get_root_val(self):
         return self.value
 
+    def find(self):
+        return self.value
+
     def insert(self, value):
         self.value = value
 
@@ -34,7 +37,7 @@ class BinarySearchTree:
             self.right = t
 
     def preorder(self):
-        print(self.value)
+        #print(self.value)
         if self.left:
             self.left.preorder()
         if self.right:
@@ -46,12 +49,12 @@ class BinarySearchTree:
                 self.get_left().postorder()
             if self.get_right():
                 self.get_right().postorder()
-            print(self.get_root_val())            
+            #print(self.get_root_val())            
 
     def inorder(self):
         if self:
             if self.get_left():
                 self.get_left().inorder()
-            print(self.value)
+            #print(self.value)
             if self.get_right():
                 self.get_right().inorder()
