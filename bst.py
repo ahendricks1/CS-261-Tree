@@ -19,9 +19,7 @@ class BinarySearchTree:
 
     """
     Not working as intended!
-    """
-
-    """
+    
     def find_height(self):
         if self.find_height_left() > self.find_height_right():
             return self.find_height_left()
