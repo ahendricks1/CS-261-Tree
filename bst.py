@@ -68,11 +68,12 @@ class BinarySearchTree:
             self.insert_right(key)
 
     def preorder(self):
-        return(self.value)
         if self.left:
             self.left.preorder()
         if self.right:
             self.right.preorder()
+        return(self.value)
+
 
     def postorder(self):
         if self:
@@ -86,6 +87,6 @@ class BinarySearchTree:
         if self:
             if self.get_left():
                 self.get_left().inorder()
-            return(self.value)
+                return(self.value)
             if self.get_right():
                 self.get_right().inorder()
