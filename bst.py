@@ -80,7 +80,7 @@ class BinarySearchTree:
                 self.get_left().postorder()
             if self.get_right():
                 self.get_right().postorder()
-            return(self.get_root_val())            
+            print(self.get_root_val())            
 
     def inorder(self):
         if self:
