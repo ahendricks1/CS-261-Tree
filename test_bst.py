@@ -65,12 +65,14 @@ class TestBinarySearchTreeTree(unittest.TestCase):
         bst_3 = BinarySearchTree(77, bst_1, bst_2)
         bst_3.postorder()
 
+    """
     def test_traverse_inorder(self):
         bst_1 = BinarySearchTree(33)
         bst_2 = BinarySearchTree(45)
         bst_3 = BinarySearchTree(80, bst_1, bst_2)
         bst_3.inorder()
-
+    """
+        
     """
     Find
     """
@@ -93,10 +95,11 @@ class TestBinarySearchTreeTree(unittest.TestCase):
 
     def test_del_leaf(self):
         bst = BinarySearchTree(35)
-        bst.insert(30)
-        bst.insert(43)
+        bst.insert(33)
         bst.insert(45)
+        bst.inorder()
         bst.del_leaf_value()
+        bst.inorder()
 
 if __name__ == '__main__':
     unittest.main()
