@@ -40,13 +40,13 @@ class TestBinarySearchTreeTree(unittest.TestCase):
         self.assertEqual(55, bst.right.value)
 
     def test_insert_with_value_left(self):
-        bst = BinarySearchTree("FAKE", BinarySearchTree(), BinarySearchTree())
-        bst.insert_left(41)
+        bst = BinarySearchTree(100, BinarySearchTree(), BinarySearchTree())
+        bst.insert(41)
         self.assertEqual(41, bst.left.value)
     
     def test_insert_with_value_right(self):
-        bst = BinarySearchTree("FAKE", BinarySearchTree(), BinarySearchTree())
-        bst.insert_right(41)
+        bst = BinarySearchTree(30, BinarySearchTree(), BinarySearchTree())
+        bst.insert(41)
         self.assertEqual(41, bst.right.value)
 
     """
