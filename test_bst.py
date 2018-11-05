@@ -82,9 +82,9 @@ class TestBinarySearchTreeTree(unittest.TestCase):
 
     def test_find_height(self):
         bst = BinarySearchTree(50)
-        bst.insert_left(40)
-        bst.insert_left(32)
-        bst.insert_right(69)
+        bst.insert(40)
+        bst.insert(32)
+        bst.insert(69)
         bst.find_height_left()
 
     """
