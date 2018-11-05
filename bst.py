@@ -42,6 +42,10 @@ class BinarySearchTree:
     def del_leaf_value(self):
         if self.left == None and self.right == None:
             return None
+        if self.left:
+            self.get_left().del_leaf_value()
+        if self.right:
+            self.get_right().del_leaf_value()
 
     def insert_left(self, newNode):
         if self.left == None:
@@ -80,7 +84,7 @@ class BinarySearchTree:
                 self.get_left().postorder()
             if self.get_right():
                 self.get_right().postorder()
-            print(self.get_root_val())            
+            return(self.get_root_val())            
 
     def inorder(self):
         if self:
