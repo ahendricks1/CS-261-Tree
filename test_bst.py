@@ -33,10 +33,11 @@ class TestBinarySearchTreeTree(unittest.TestCase):
     """
 
     def test_insert(self):
-        fake_value = "FAKE"
-        fake_child = "FAKE"
-        bst = BinarySearchTree(fake_value, fake_child, fake_child)
-        bst.insert(fake_child)
+        bst = BinarySearchTree(50)
+        bst.insert(1)
+        bst.insert(55)
+        self.assertEqual(1, bst.left.value)
+        self.assertEqual(55, bst.right.value)
 
     def test_insert_with_value_left(self):
         bst = BinarySearchTree("FAKE", BinarySearchTree(), BinarySearchTree())
@@ -74,13 +75,28 @@ class TestBinarySearchTreeTree(unittest.TestCase):
     Find
     """
 
-    def test_find(self):
+    def test_find_value(self):
         test_value = "FAKE"
         bst = BinarySearchTree(test_value)
         self.assertEqual(test_value, bst.value)
 
-    def test_find_value(self):
-        pass
+    def test_find_height(self):
+        bst = BinarySearchTree(50)
+        bst.insert_left(40)
+        bst.insert_left(32)
+        bst.insert_right(69)
+        bst.find_height_left()
+
+    """
+    Deletion
+    """
+
+    def test_del_leaf(self):
+        bst = BinarySearchTree(35)
+        bst.insert(30)
+        bst.insert(43)
+        bst.insert(45)
+        bst.del_leaf_value()
 
 if __name__ == '__main__':
     unittest.main()

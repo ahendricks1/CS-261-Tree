@@ -17,8 +17,33 @@ class BinarySearchTree:
     def find(self):
         return self.value
 
-    def insert(self, value):
-        self.value = value
+    """
+    Not working as intended!
+    """
+
+    """
+    def find_height(self):
+        if self.find_height_left() > self.find_height_right():
+            return self.find_height_left()
+        else:
+            return self.find_height_right()
+    """
+
+    def find_height_left(self, count = 0):
+        if self.left == None and self.right == None:
+            print(count)
+        if self.left:
+            self.get_left().find_height_left(count + 1)
+
+    def find_height_right(self, count = 0):
+        if self.left == None and self.right == None:
+            return(count)
+        if self.right:
+                self.get_right().find_height_right(count + 1)
+
+    def del_leaf_value(self):
+        if self.left == None and self.right == None:
+            return None
 
     def insert_left(self, newNode):
         if self.left == None:
@@ -35,9 +60,17 @@ class BinarySearchTree:
             t = BinarySearchTree(newNode)
             t.right = self.right
             self.right = t
+            
+    def insert(self, key):
+        if self.value == key:
+            print("That node already exists.")
+        elif self.value > key:
+            self.insert_left(key)
+        else:
+            self.insert_right(key)
 
     def preorder(self):
-        #print(self.value)
+        return(self.value)
         if self.left:
             self.left.preorder()
         if self.right:
@@ -49,12 +82,12 @@ class BinarySearchTree:
                 self.get_left().postorder()
             if self.get_right():
                 self.get_right().postorder()
-            #print(self.get_root_val())            
+            return(self.get_root_val())            
 
     def inorder(self):
         if self:
             if self.get_left():
                 self.get_left().inorder()
-            #print(self.value)
+            return(self.value)
             if self.get_right():
                 self.get_right().inorder()
