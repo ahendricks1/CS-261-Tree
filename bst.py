@@ -74,7 +74,6 @@ class BinarySearchTree:
             self.right.preorder()
         return(self.value)
 
-
     def postorder(self):
         if self:
             if self.get_left():
