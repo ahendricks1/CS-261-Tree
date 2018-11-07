@@ -36,18 +36,9 @@ class TestBinarySearchTreeTree(unittest.TestCase):
         bst = BinarySearchTree(50)
         bst.insert(1)
         bst.insert(55)
+        bst.insert(60)
         self.assertEqual(1, bst.left.value)
         self.assertEqual(55, bst.right.value)
-
-    def test_insert_with_value_left(self):
-        bst = BinarySearchTree(100, BinarySearchTree(), BinarySearchTree())
-        bst.insert(41)
-        self.assertEqual(41, bst.left.value)
-    
-    def test_insert_with_value_right(self):
-        bst = BinarySearchTree(30, BinarySearchTree(), BinarySearchTree())
-        bst.insert(41)
-        self.assertEqual(41, bst.right.value)
 
     """
     Traverse
@@ -81,12 +72,14 @@ class TestBinarySearchTreeTree(unittest.TestCase):
         bst = BinarySearchTree(test_value)
         self.assertEqual(test_value, bst.value)
 
+    
     def test_find_height(self):
         bst = BinarySearchTree(50)
         bst.insert(40)
         bst.insert(32)
         bst.insert(69)
-        bst.find_height_left()
+        self.assertEqual(3, bst.find_height())
+    
 
     """
     Deletion
@@ -97,6 +90,7 @@ class TestBinarySearchTreeTree(unittest.TestCase):
         bst.insert(33)
         bst.insert(45)
         bst.del_leaf_value()
+        bst.inorder()
 
 if __name__ == '__main__':
     unittest.main()

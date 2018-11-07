@@ -13,25 +13,43 @@ class BinarySearchTree:
 
     def get_root_val(self):
         return self.value
+    
+    def is_leaf(self):
+        return not(self.left or self.right)
 
     def find(self):
         return self.value
 
-    """
-    Not working as intended!
+    # def find_height(self, count = 0):
+    #     if self.left == None and self.right == None:
+    #         return(count + 1)
+    #     elif self.left == None:
+    #         return self.right.find_height(count) + 1
+    #     elif self.right == None:
+    #         return self.left.find_height(count) + 1
+    #     else:
+    #         lefth = self.left.find_height(count)
+    #         righth = self.right.find_height(count)
+    #         if lefth > righth:
+    #             return lefth
+    #         else:
+    #             return righth
 
     def find_height(self):
-        if self.find_height_left() > self.find_height_right():
-            return self.find_height_left()
-        else:
-            return self.find_height_right()
-    """
-
-    def find_height_left(self, count = 0):
         if self.left == None and self.right == None:
-            return(count)
-        if self.left:
-            self.get_left().find_height_left(count + 1)
+            return 1
+        else:
+            lefth = 0
+            righth = 0
+            if self.left != None:
+                lefth = self.left.find_height()
+            if self.right != None:
+                righth = self.right.find_height()
+            if lefth > righth:
+                return lefth + 1
+            else:
+                return righth + 1
+
 
     def find_height_right(self, count = 0):
         if self.left == None and self.right == None:
@@ -40,36 +58,24 @@ class BinarySearchTree:
                 self.get_right().find_height_right(count + 1)
 
     def del_leaf_value(self):
-        if self.left == None and self.right == None:
+        if self.is_leaf():
             return None
         if self.left:
             self.get_left().del_leaf_value()
         if self.right:
             self.get_right().del_leaf_value()
 
-    def insert_left(self, newNode):
-        if self.left == None:
-            self.left = BinarySearchTree(newNode)
-        else:
-            t = BinarySearchTree(newNode)
-            t.left = self.left
-            self.left = t
-
-    def insert_right(self, newNode):
-        if self.right == None:
-            self.right = BinarySearchTree(newNode)
-        else:
-            t = BinarySearchTree(newNode)
-            t.right = self.right
-            self.right = t
-            
-    def insert(self, key):
-        if self.value == key:
-            print("That node already exists.")
-        elif self.value > key:
-            self.insert_left(key)
-        else:
-            self.insert_right(key)
+    def insert(self, value):
+        if self.value > value:
+            if self.left == None:
+                self.left = BinarySearchTree(value)
+            else:
+                self.left.insert(value)
+        elif self.value < value:
+            if self.right == None:
+                self.right = BinarySearchTree(value)
+            else:
+                self.right.insert(value)
 
     def preorder(self):
         if self.left:
@@ -88,7 +94,7 @@ class BinarySearchTree:
 
     def inorder(self):
         if self:
-            print(self.value)
+            yield(self.value)
             if self.get_left():
                 self.get_left().inorder()
             if self.get_right():
